@@ -1,0 +1,25 @@
+{% extends "todo/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+	<div class="form-page">
+		<form method="POST" class="form-style">
+			{% csrf_token %}
+			<legend class="legend-style">Log In</legend>
+			<div class="form-row">
+				<label for="{{ form.username.id_for_label }}">Username</label>
+				{{ form.username }}
+			</div>
+			<div class="form-row">
+				<label for="{{ form.password.id_for_label }}">Password</label>
+				{{ form.password }}
+			</div>
+			<div class="form-row">
+				<button>Login</button>
+			</div>
+		</form>
+
+		<div class="sign-up-section">
+			<small>Need an Account? <a href="{% url 'register' %}">Sign Up Here!</a></small>
+		</div>
+	</div>
+{% endblock %}

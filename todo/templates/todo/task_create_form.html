@@ -1,0 +1,32 @@
+{% extends "todo/user_tasks_home.html" %}
+{%block add_content%}
+    <div class="col-2">
+			<section class="add-task">
+				<form method="POST" class="form-style">
+                {% csrf_token %}
+                <h1 class="page-h1">Define the task</h1>
+                <div class="task-row">
+                    <label for="{{ form.title.id_for_label }}">Title</label>
+                    {{ form.title }}
+                </div>
+                <div class="task-row">
+                    <label for="{{ form.description.id_for_label }}">Description</label>
+                    {{ form.description }}
+                </div>
+                <div class="task-row">
+                    <label for="{{ form.category.id_for_label }}">Category</label>
+                    {{ form.category }}
+                </div>
+                <div class="task-row-checkbox">
+                    <label for="{{ form.starred.id_for_label }}">Important</label>
+                    {{ form.starred }}
+                </div>
+                <div class="task-row">
+                    <button type="submit">Save</button>
+                </div>
+            </form>
+
+			</section>
+
+		</div>
+{% endblock %}

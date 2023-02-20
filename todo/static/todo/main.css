@@ -1,0 +1,525 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background: url("images/Desktop1.svg") no-repeat center fixed;
+	background-size: cover;
+	background-color: #121a29;
+}
+
+body#page2{
+    background: #53A6FF;
+}
+header {
+	position: fixed;
+	left: 58px;
+	top: 19px;
+	color: #C5E5FF;
+	font-family: 'Barlow Condensed';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 30px;
+	line-height: 74px;
+	text-transform: uppercase;
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.menu {
+	display: flex;
+	justify-content: right;
+	margin-right: 58px;
+}
+
+.menu li {
+  display: inline;
+  margin-right: 50px;
+}
+
+a:link,
+a:visited {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+.page {
+	width: 960px;
+	margin: 70px auto 0;
+	padding: 30px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.section-intro {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.section-h1 {
+  height: auto;
+  font-family: 'Outfit';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 62px;
+	line-height: 78px;
+
+	color: #BDDDF9;
+  justify-content: inherit;
+  align-items: inherit;
+}
+
+.section-intro a {
+	text-decoration: none;
+	color: #e4e7ed;
+}
+
+.section-row {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section-img,
+.section-para {
+	width: 50%;
+}
+
+.section-img {
+	mix-blend-mode: color-dodge;
+}
+
+.section-para {
+	font-family: 'Nunito';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 36px;
+	/* or 180% */
+	text-align: center;
+	color: #FFFFFF;
+}
+
+.btn {
+	width: 100%;
+	display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+	padding: 17px 50px;
+	width: auto;
+	height: 77px;
+	background: #C5E5FF;
+	border-radius: 71px;
+	gap: 10px;
+
+}
+
+.btn a {
+	text-decoration: none;
+	color: #02104A;
+	text-transform: uppercase;
+	font-family: 'Nunito';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 35px;
+
+	/* identical to box height */
+	text-align: center;
+}
+
+
+/*Login Styles*/
+
+.form-page {
+	width: 800px;
+	margin: 80px auto 0;
+	padding: 30px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+  flex-direction: column;
+  background: linear-gradient(180deg, #031F35 0%, #000000 0.01%, rgba(3, 31, 53, 0) 100%);
+	box-shadow: inset 0px 4px 279px rgba(0, 0, 0, 0.25);
+
+}
+
+.form-style {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.legend-style {
+	font-family: 'Outfit';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 90px;
+	line-height: 113px;
+	text-transform: capitalize;
+
+	color: #BDDDF9;
+  text-align: center;
+	margin-bottom: 20px;
+}
+
+.form-row {
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: flex-start; /* To avoid stretching */
+  margin-bottom: 20px;
+
+}
+
+.form-row input {
+	width: 100%;
+	color: white;
+	font-family: 'Nunito';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 20px;
+  background: none;
+  border: none;
+	border-radius: 0;
+	border-bottom: 1px solid #BDDDF9;
+}
+
+
+.form-row label {
+  font-family: 'Nunito';
+font-style: normal;
+font-weight: 400;
+font-size: 25px;
+line-height: 50px;
+text-transform: capitalize;
+
+color: #BDDDF9;
+
+mix-blend-mode: lighten;
+opacity: 0.5;
+}
+
+.form-row button {
+  font-family: 'Nunito';
+font-style: normal;
+font-weight: 600;
+font-size: 25px;
+line-height: 48px;
+/* identical to box height */
+text-align: center;
+
+color: #02104A;
+
+
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 5px 35px;
+
+width: auto;
+height: auto;
+
+
+background: #C5E5FF;
+border-radius: 71px;
+  cursor: pointer;
+}
+
+.form-row button:hover {
+  background-color: #5995DA;
+  color: #FFFFFF;
+}
+
+.sign-up-section {
+	margin: 0 auto;
+	font-family: 'Nunito';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 25px;
+	line-height: 48px;
+	/* identical to box height */
+	text-transform: capitalize;
+
+	color: #BDDDF9;
+
+}
+
+.sign-up-section a {
+	text-decoration: none;
+	color: #38D8FF;
+}
+
+/* tasks css */
+.task-page {
+	margin: 120px 20px;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+}
+
+/* Desktop Styles */
+@media only screen and (min-width: 961px) {
+
+.col-1 {
+	margin: 60px 0;
+	display: flex;
+	flex-wrap: wrap;
+  flex-direction: column;
+	width: 20%;
+}
+
+.col-2 {
+	display: flex;
+	flex-wrap: wrap;
+  flex-direction: column;
+	width: 60%;
+}
+}
+
+/* Desktop Styles */
+@media only screen and (max-width: 960px) {
+
+.col-1 {
+	margin: 60px 0;
+	display: flex;
+	flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.col-2 {
+	display: flex;
+	flex-wrap: wrap;
+  flex-direction: column;
+}
+
+}
+
+.a-btn {
+	display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+	padding: 10px 10px;
+	height: 50px;
+	background: #C5E5FF;
+    border-radius: 20px;
+	gap: 10px;
+	margin: 10px 10px;
+	font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    text-transform: capitalize;
+
+    color: #02104A;
+}
+
+.a-btn a {
+text-decoration: none;
+font-family: 'Nunito';
+font-style: normal;
+font-weight: 500;
+font-size: 30px;
+text-transform: capitalize;
+
+color: #02104A;
+}
+
+.page-legends {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 41px;
+    /* identical to box height */
+    text-transform: capitalize;
+    margin: 0 15px;
+    color: #02104A;
+}
+
+.add-task {
+	width: 70%;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	flex-direction: column;
+    margin:0 auto;
+}
+
+.page-h1 {
+	font-family: 'Outfit';
+font-style: normal;
+font-weight: 600;
+font-size: 50px;
+
+color: #02104A;
+}
+
+.added-style {
+	width: 100%;
+	color: #FFFFFF;
+	background: #275693;
+    border-radius: 15px;
+}
+
+.width {
+	width: 100%;
+}
+
+.task-row {
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start; /* To avoid stretching */
+    margin-bottom: 20px;
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    text-transform: capitalize;
+    width: 100%;
+    color: #02104A;
+}
+
+.task-row input,
+.task-row textarea,
+.task-row select{
+    width: 100%;
+	color: #02104A;
+	font-family: 'Nunito';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 20px;
+    background: #C5E5FF;
+    border: 1px solid #02104A;
+	border-radius: 5px;
+	border-bottom: 1px solid #02104A;
+	outline: none;
+	padding: 5px 5px;
+}
+
+.task-row-checkbox {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    text-transform: capitalize;
+    width: 100%;
+    color: #02104A;
+}
+
+.task-row-checkbox input {
+    -webkit-appearance: none;
+    height: 25px;
+    width: 25px;
+    margin-left: 10px;
+    border: 1px solid #02104A;
+    border-radius: 1px;
+    outline: none;
+
+}
+
+input[type=checkbox]:checked {
+    background-color: #02104A;
+    border-color: #02104A;
+    background-image: url("images/check-50.png");
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.task-list {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    border-radius: 30px;
+    background: #C5E5FF;
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    /* identical to box height */
+    text-transform: capitalize;
+
+    color: #02104A;
+}
+
+.task-list:hover {
+    box-shadow: 0px 4px 4px 3px rgba(0, 0, 0, 0.25);
+
+}
+
+.task-item{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-left: 10px;
+    padding: 10px 10px;
+    color: #02104A;
+}
+.task-item-button {
+    display: flex;
+    justify-content: felx-start;
+    width: 100%;
+    border: none;
+    background: none;
+    outline: none;
+    cursor: pointer;
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25px;
+    /* identical to box height */
+    text-transform: capitalize;
+}
+
+.task-list-green {
+    background: #93FFD8;
+}
+
+.img-style {
+    margin-right: 10px;
+    width: 30px;
+}
+
+.task-button {
+    display: flex;
+    justify-content: flex-end;
+    align-item: center;
+    border-radius: 8px;
+    padding: 0 5px;
+
+}
+
+.task-button a {
+    background-image: url("images/icons8-edit.png");
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+    text-decoration: none;
+    cursor: pointer;
+    color: transparent;
+}

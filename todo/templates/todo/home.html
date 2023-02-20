@@ -1,0 +1,30 @@
+{% extends "todo/base.html" %}
+{% load static %}
+{% block content %}
+	<div class="page">
+
+		<section class="section-intro">
+			<h1 class="section-h1">Welcome to The Synch!</h1><br>
+			<div class="section-row">
+				<div class="section-img"><img src="{% static 'todo/images/Other 15.svg' %}"/></div>
+				<span class="section-para">An app to keep track of all of your tasks for the day, week, month!<br>
+				Often times people find it difficult to organize and manage their days. Given that we are merely human beings we can add to this the natural phenomenon of forgetfullness!<br>
+				Together all these factors result in tasks getting compromised or altogether being eliminated. All in all this adds up to stressful days.
+				</span>
+			</div>
+
+
+			<br><br>
+			<div class="section-row">
+				<span class="section-para">
+					Well we are here to help you manage some of these tangible stressors in your life!<br>
+				Even though this is a fairly simple tool it will help you organize your day to day activities and plan your days out in a more effective manner.<br>The application provides a simple yet user friendly interface to keep track of all of your tasks. We do hope you will enjoy using this app!
+				</span>
+				<div class="section-img"><img src="{% static 'todo/images/Other 16.svg' %}"/></div>
+			</div>
+			<br><br>
+			<div class="btn"><a href="{% url 'login' %}">Get started</a></div>
+		</section>
+
+	</div>
+{% endblock %}

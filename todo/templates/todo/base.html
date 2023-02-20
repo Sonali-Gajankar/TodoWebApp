@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link href="https://fonts.googleapis.com/css?family=Outfit&display=swap" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css?family=Barlow+Condensed&display=swap" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="{% static 'todo/main.css' %}"/>
+		<title>ToDo App</title>
+	</head>
+	<body>
+		<header>
+			{% if user.is_authenticated %}
+			<div class="logo"><a href="{% url 'task-list' %}">The Synch</a></div>
+			<nav>
+				<ul class="menu">
+
+					<li><a href="#">About</a></li>
+					<li><a href="{% url 'logout' %}">Logout</a></li>
+
+				</ul>
+			</nav>
+			{% else %}
+			<div class="logo"><a href="{% url 'todo-home' %}">The Synch</a></div>
+			{% endif %}
+		</header>
+
+		{% block content %}{% endblock %}
+
+	</body>
+</html>
