@@ -17,12 +17,17 @@
                     <label for="{{ form.category.id_for_label }}">Category</label>
                     {{ form.category }}
                 </div>
-                <div class="task-row-checkbox">
+                <div class="task-row">
+                    <label for="{{ form.date_field.id_for_label }}">Select a date for the task</label>
+                    {{ form.date_field }}
+                </div>
+                <div class="task-row-inline">
                     <label for="{{ form.starred.id_for_label }}">Important</label>
                     {{ form.starred }}
                 </div>
-                <div class="task-row">
-                    <button type="submit">Save</button>
+                <div class="task-row-inline">
+                    <button class="a-btn" type="submit">Save</button>
+                    <a class="a-btn" href="{{request.META.HTTP_REFERER}}">Cancel</a>
                 </div>
             </form>
 

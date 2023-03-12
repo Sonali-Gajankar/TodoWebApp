@@ -11,15 +11,13 @@
 		<title>ToDo App</title>
 	</head>
 	<body id="page2">
-		<header>
+		<header id="new-background">
 			{% if user.is_authenticated %}
-			<div class="logo"><a href="{% url 'task-list' %}">The Synch</a></div>
+			<div class="logo"><a href="{% url 'task-list' 'today' %}">The Synch</a></div>
 			<nav>
 				<ul class="menu">
-
-					<li><a href="#">About</a></li>
+					<li><a href="{% url 'about' %}">About</a></li>
 					<li><a href="{% url 'logout' %}">Logout</a></li>
-
 				</ul>
 			</nav>
 			{% else %}
@@ -28,25 +26,10 @@
 		</header>
 
 		<div class="task-page">
-		<div class="col-1">
-			<legend class="page-legends">Add/view a task</legend>
-			<div class="a-btn"><a href="#">Tomorrow</a></div>
-			<div class="a-btn"><a href="#">Next Week</a></div>
-			<div class="a-btn"><a href="#">Next Month</a></div>
-				<br>
-
-			<legend class="page-legends">Task History</legend>
-			<div>
-				<div class="a-btn">Task1</div>
-			</div>
-		</div>
 
 		{%block add_content%}{% endblock %}
 
-	    <div class="col-1">
-	    	<legend class="page-legends">Important Tasks</legend>
-	    	<div class="a-btn">Task1</div>
-	    </div>
+
     </div>
 	</div>
 

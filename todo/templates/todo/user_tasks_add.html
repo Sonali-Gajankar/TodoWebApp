@@ -1,28 +1,64 @@
 {% extends "todo/user_tasks_home.html" %}
 {% load static %}
 {%block add_content%}
+	<div class="col-1">
+		<legend class="page-legends">View a task</legend>
+		{% if day == 'Today' %}
+		<div class="a-btn"><a href="{% url 'task-list' 'tomorrow' %}">Tomorrow</a></div>
+		<div class="a-btn"><a href="{% url 'task-list' 'next_seven_days' %}">Next Week</a></div>
+		<div class="a-btn"><a href="{% url 'task-list' 'month' %}">Next Month</a></div>
+		{% elif day == 'Tomorrow' %}
+		<div class="a-btn"><a href="{% url 'task-list' 'today' %}">Today</a></div>
+		<div class="a-btn"><a href="{% url 'task-list' 'next_seven_days' %}">Next Week</a></div>
+		<div class="a-btn"><a href="{% url 'task-list' 'month' %}">Next Month</a></div>
+		{% elif day == 'Next Week' or day == 'Next Month' %}
+		<div class="a-btn"><a href="{% url 'task-list' 'today' %}">Today</a></div>
+		<div class="a-btn"><a href="{% url 'task-list' 'tomorrow' %}">Tomorrow</a></div>
+		<div class="a-btn"><a href="{% url 'task-list' 'next_seven_days' %}">Next Week</a></div>
+		<div class="a-btn"><a href="{% url 'task-list' 'month' %}">Next Month</a></div>
+		{% endif %}
+			<br>
+
+		<legend class="page-legends">Task History</legend>
+		<div>
+			{% for task in top_five %}
+			<div class="task-list btn-hover">
+				<div class="task-item task-item-button">
+					<a href="{% url 'update' task.id %}" >{{ task.title }}<small>{{ task.date_field}}</small></a>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
     <div class="col-2">
 			<section class="add-task">
 				<h1 class="page-h1">Welcome {{user.first_name}}!</h1>
-				<legend class="page-legends">let't get started</legend>
+				<legend class="page-legends">let's get started</legend>
 				<legend class="page-legends">Task List</legend>
-				<a class="a-btn added-style" href="{% url 'create-task' %}">Add a task</a>
-				<legend class="page-legends">Tasks for today</legend>
+				<a class="a-btn added-style btn-hover" href="{% url 'create-task' %}">Create a new task</a>
+				{% if not user_tasks %}
+				<legend class="page-legends">No Tasks For {{day}}</legend>
+				{% else %}
+				<legend class="page-legends page-demarcation">Tasks for {{day}}</legend>
+				{% endif %}
 				{% for task in user_tasks %}
 				{% if task.status == False %}
-				<div class="task-list">
+				<div class="task-list btn-hover">
 					<div class="task-item">
 						<form class="width" method="post" action="{% url 'update-status' task.id %}">
 							{% csrf_token %}
-
+							{% if task.starred %}
+							<button class="task-item-button" type="submit"><img class="img-style" src="{% static 'todo/images/icons8-star-filled-48.png' %}">{{ task.title }}</button>
+							{% else %}
 							<button class="task-item-button" type="submit">{{ task.title }}</button>
-
+							{% endif %}
 						</form>
 					</div>
-					<div class="task-button"><a href="#" >edit</a></div>
+
+					<div class="task-button"><a href="{% url 'update' task.id %}" >edit</a></div>
 				</div>
 				{% else %}
-				<div class="task-list task-list-green">
+				<div class="task-list btn-hover task-list-green">
 					<div class="task-item">
 						<form class="width" method="post" action="{% url 'update-status' task.id %}">
 							{% csrf_token %}
@@ -31,11 +67,52 @@
 
 						</form>
 					</div>
-					<div class="task-button"><a href="#" >edit</a></div>
+					<div class="task-button"><a href="{% url 'update' task.id %}" >edit</a></div>
 				</div>
 				{% endif %}
 				{% endfor %}
+				{% if is_paginated %}
+					<div class="pagination">
+						{% if page_obj.has_previous %}
+							<a  href="?page=1">First</a>
+							<a  href="?page={{ page_obj.previous_page_number }}">Previous</a>
+						{% endif %}
+
+						{% for num in page_obj.paginator.page_range %}
+							{% if page_obj.number == num %}
+							   <a  href="?page={{ num }}">{{ num }}</a>
+							{% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+								<a  href="?page={{ num }}">{{ num }}</a>
+							{% endif %}
+						{% endfor %}
+
+						{% if page_obj.has_next %}
+							<a  href="?page={{ page_obj.next_page_number }}">Next</a>
+							<a  href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+						{% endif %}
+					</div>
+				{% endif %}
 			</section>
 
+
+	</div>
+
+	<div class="col-1">
+		<legend class="page-legends">Important Upcoming Tasks</legend>
+		{% for task in starred_tasks %}
+		{% if task.status == False %}
+			<div class="task-list btn-hover">
+				<div class="task-item task-item-button">
+					<a href="{% url 'update' task.id %}" >{{ task.title }}<small>{{ task.date_field}}</small></a>
+				</div>
+			</div>
+		{% else %}
+			<div class="task-list btn-hover task-list-green">
+				<div class="task-item task-item-button">
+						<a href="{% url 'update' task.id %}" >{{ task.title }}<small>{{ task.date_field}}</small></a>
+				</div>
+			</div>
+		{% endif %}
+		{% endfor %}
 	</div>
 {% endblock %}
